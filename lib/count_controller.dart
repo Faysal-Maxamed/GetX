@@ -1,16 +1,22 @@
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
-class count extends GetxController {
-  var counter = 0.obs; // State-ka
+class CountController extends GetxController {
+  var count = 0.obs;
 
-  void increment() {
-    counter++;
+  increment() {
+    count++;
   }
 
-  void decrement() {
-    if (counter > 0) {
-      counter--;
+  decrement() {
+    if (count > 1) {
+      count--;
+    } else {
+      Get.snackbar(
+        "Not minus",
+        "Not use decrement",
+        snackPosition: SnackPosition.TOP,
+      );
     }
-    
   }
 }
